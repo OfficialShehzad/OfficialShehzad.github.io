@@ -163,12 +163,68 @@ a {
 
 .projects {
     color: rgb(218, 254, 255);
-    height: 200vh;
+    min-height: 100vh;
     padding: 7% 15%;
 }
 
 
 .projects-heading {
+    font-size: 65px;
+    padding-bottom: 20px;
+}
+
+.project {
+    padding-top: 5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.project-name {
+    padding-top: 2rem;
+    font-size: 32px;
+}
+
+.definition {
+    padding: 2rem;
+    font-size: 1.25rem;
+}
+
+.project-img {
+    height: 40vh;
+    width: auto;
+}
+
+.btn {
+    padding: 8px 14px;
+    margin-top: 2rem;
+    margin-right: 1rem;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    color: #fff;
+    background-color: transparent;
+    width: max-content;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: rgb(0, 42, 56);
+}
+
+.icon {
+    font-size: .5rem;
+}
+
+.contact {
+    color: rgb(218, 254, 255);
+    min-height: 100vh;
+    padding: 7% 15%;
+}
+
+
+.contact-heading {
     font-size: 65px;
     padding-bottom: 20px;
 }
