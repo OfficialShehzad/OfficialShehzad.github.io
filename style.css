@@ -2,6 +2,8 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 html {
@@ -9,6 +11,7 @@ html {
 }
 
 body {
+    max-width: 100vw;
     background-color: rgb(0, 42, 56);
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
@@ -17,6 +20,10 @@ body {
 a {
     text-decoration: none;
     color: inherit;
+}
+
+p {
+    overflow-x: initial;
 }
 
 
@@ -38,6 +45,7 @@ a {
     font-size: 24px;
     position: relative;
     transition: .3s ease-in-out;
+    overflow-x: initial;
 }
 
 .nav a::after{
@@ -59,13 +67,77 @@ a {
     width: 45px;
 }
 
+.menu-icon {
+    color: #fff;
+    display: none !important;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    padding: 1rem;
+    transition: .1s linear;
+}
+
+.menu-icon:hover {
+    border-width: 0;
+}
+
+.close-icon {
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    padding: 1rem;
+    transition: .1s linear;
+}
+
+.close-icon:hover {
+    border-width: 0;
+}
+
+
+.fullscreen-nav {
+    height: 100%;
+    width: 0%;
+    position: fixed;
+    z-index: 3;
+    background-color: rgba(0, 28, 54, .9);
+    transition: .5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.fullscreen-nav a {
+    font-size: 3rem;
+    color: #fff;
+    position: relative;
+    transition: .3s ease-in-out;
+    overflow-x: initial;
+}
+
+.fullscreen-nav a::after{
+    content: "";
+    background-color: rgb(218, 254, 255);
+    position: absolute;
+    bottom: -2px;
+    left: 3px;
+    width: 0px;
+    height: 4px;
+    transition: .3s ease-in-out;
+}
+
+.fullscreen-nav a:hover::after {
+    width: 80px;
+}
+
+
 .name-section {
     color: rgb(218, 254, 255);
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 15%;
+    padding: 0 15%;
     position: relative;
 }
 
@@ -106,11 +178,11 @@ a {
 
 .about {
     color: rgb(218, 254, 255);
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 15%;
+    padding: 7% 15%;
 }
 
 .about-heading {
@@ -130,6 +202,8 @@ a {
 .about-content {
     font-size: 22px;
     line-height: 2.5rem;
+    overflow-x: initial;
+    /* height: fit-content; */
 }
 
 .about-content li {
@@ -194,6 +268,10 @@ a {
     width: auto;
 }
 
+.right {
+    order: 1;
+}
+
 .btn {
     padding: 8px 14px;
     margin-top: 2rem;
@@ -218,6 +296,7 @@ a {
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
+    overflow-x: initial;
 }
 
 .icon {
@@ -239,11 +318,12 @@ a {
 
 .number-section {
     padding-top: 3rem;
-    width: max-content;
+    height: fit-content;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
+    overflow-x: initial;
 }
 
 .copy-number {
@@ -252,6 +332,7 @@ a {
     padding: 1rem;
     border-radius: 50%;
     font-size: 3rem;
+    transition: .5s ease-in-out;
 }
 
 .copy-number:hover {
@@ -259,16 +340,25 @@ a {
     color: #fff;
 }
 
+.copy-container {
+    position: relative;
+}
+
 .copy-confirmation {
     color: rgb(83, 179, 80);
+    position: absolute;
+    top: -10px;
 }
 
 .material-symbols-outlined {
     cursor: pointer;
+    overflow-x: initial;
 }
 
 .whatsapp-section, .email-section {
+    height: fit-content;
     padding-top: 3rem;
+    overflow-x: initial;
 }
 
 .btn-green {
@@ -296,3 +386,112 @@ a {
     text-align: center;
     color: #fff;
 }
+
+.hidden {
+    display: none;
+}
+
+
+@media only screen and (max-width: 1400px) {
+    .name-section, .about, .projects, .contact {
+        padding: 7% 7%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .right {
+        order: 0;
+    }
+
+    .project {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-img {
+        width: 50vw;
+        height: auto;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .nav > a {
+        display: none;
+    }
+
+    .menu-icon {
+        display: block !important;
+    }
+
+    .hidden {
+        display: block;
+    }
+
+    .contact {
+        font-size: 2rem;
+    }
+
+    .heading-hover:hover {
+        font-size: 4rem;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .project-img {
+        width: 80vw;
+        height: auto;
+    }
+
+    .project-name {
+        font-size: 2rem;
+    }
+
+    .contact {
+        font-size: 1.5rem;
+    }
+
+    .definition {
+        font-size: 1rem;
+        line-height: 1.75rem;
+    }
+
+    .about-hover:hover {
+        font-size: 1.5rem;
+    }
+
+    .about-content {
+        font-size: 1rem;
+        line-height: 1.75rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .intro, .about-heading, .projects-heading, .contact-heading {
+        font-size: 3rem;
+    }
+
+    .projects-heading {
+        font-size: 2rem;
+    }
+
+    .contact {
+        font-size: 1rem;
+    }
+
+    .about-me {
+        font-size: 1.25rem;
+    }
+
+    .name:hover {
+       font-size: 4rem;
+    }
+
+    .about-me-hover:hover{
+        font-size: 2rem;
+    }
+
+    .number-section {
+        width: max-content;
+        gap: 1rem;
+    }
+} 
