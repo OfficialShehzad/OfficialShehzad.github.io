@@ -37,6 +37,18 @@ section {
     line-height: 10rem;
 }
 
+.hello {
+    animation: slide-in-animation 1.5s ease-in-out forwards;
+}
+
+.my-name {
+    animation: slide-in-animation 2s ease-in-out forwards;
+}
+
+.my-description {
+    animation: slide-in-animation 2.3s ease-in-out forwards;
+}
+
 nav {
     position: fixed;
     top: 4%;
@@ -89,6 +101,11 @@ nav a:hover::after {
 
 .project img {
     width: 100%;
+}
+
+.text-up {
+    opacity: 0;
+    transform: translateX(-100px);
 }
 
 #contact {
@@ -160,12 +177,13 @@ button:active {
     opacity: 0.8;
 }
 
-@keyframes slideIn {
-    from {
-        left: -200px;
-    }
+@keyframes slide-in-animation {
+	from {
+		opacity: 0;
+		transform: translateX(-200%);
+	}
 
-    to {
-
-    }
+	to {
+		opacity: 1;
+	}
 }

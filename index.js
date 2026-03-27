@@ -4,7 +4,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const horizontalScrollContent = gsap.utils.toArray('.projects-container .project');
 
-gsap.to(horizontalScrollContent, {
+const scrollTween = gsap.to(horizontalScrollContent, {
     xPercent: -100 * (horizontalScrollContent.length - 1),
     scrollTrigger: {
         trigger: ".projects-container",
@@ -15,6 +15,22 @@ gsap.to(horizontalScrollContent, {
         invalidateOnRefresh: true,
     }
 })
+
+// gsap.utils.toArray(".project-content").forEach((el) => {
+//   gsap.from(el, {
+//     opacity: 0,
+//     x: -120,
+//     scale: 0.95,
+//     duration: 1,
+//     ease: "power3.out",
+//     scrollTrigger: {
+//       trigger: el,
+//       containerAnimation: scrollTween, // 🔥 NOW this works
+//       start: `left 75`,
+//       toggleActions: "play none none reverse",
+//     }
+//   });
+// });
 
 // Image Carousel Script
 
