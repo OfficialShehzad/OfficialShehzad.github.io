@@ -187,3 +187,134 @@ button:active {
 		opacity: 1;
 	}
 }
+
+/* Responsive Styles */
+.menu-toggle, .hamburger {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    section {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    #intro {
+        padding: 10% 8%;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+    }
+
+    #intro h1 {
+        font-size: 4rem;
+        line-height: normal;
+        margin-bottom: 2rem;
+    }
+
+    .my-description {
+        font-size: 1.2rem;
+        width: 100%;
+    }
+
+    /* Hamburger Menu Styles */
+    .hamburger {
+        display: block;
+        position: fixed;
+        top: 2rem;
+        right: -1.5rem;
+        z-index: 100000;
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 30px;
+        height: 3px;
+        background: var(--primary-color);
+        margin: 6px 0;
+        transition: 0.3s;
+        border-radius: 2px;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%; /* Slightly less than 100% to see it's an overlay */
+        height: 100vh;
+        background: white;
+        justify-content: center;
+        align-items: center;
+        word-spacing: normal;
+        gap: 2rem;
+        transition: 0.4s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        z-index: 99999;
+    }
+    
+    #menu-toggle:checked ~ nav {
+        right: 0;
+    }
+
+    #menu-toggle:checked ~ .hamburger span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    #menu-toggle:checked ~ .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+
+    #menu-toggle:checked ~ .hamburger span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+    
+    nav a {
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+
+    /* Project Section Mobile */
+    .projects-container {
+        display: block;
+        width: 100%;
+        overflow: visible;
+        padding-top: 4rem;
+    }
+
+    .project {
+        width: 100%;
+        height: auto;
+        padding: 3rem 1.5rem;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .project img {
+        order: -1;
+    }
+
+    /* Contact Section Mobile */
+    #contact {
+        padding: 3rem 1.5rem;
+    }
+
+    #contact h2 {
+        font-size: 1.8rem;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    input, textarea, label {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+}

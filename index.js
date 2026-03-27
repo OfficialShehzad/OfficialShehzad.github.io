@@ -2,19 +2,24 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
-const horizontalScrollContent = gsap.utils.toArray('.projects-container .project');
+// Use matchMedia to only run the horizontal scroll on larger screens
+ScrollTrigger.matchMedia({
+    "(min-width: 769px)": function() {
+        const horizontalScrollContent = gsap.utils.toArray('.projects-container .project');
 
-const scrollTween = gsap.to(horizontalScrollContent, {
-    xPercent: -100 * (horizontalScrollContent.length - 1),
-    scrollTrigger: {
-        trigger: ".projects-container",
-        pin: true,
-        pinSpacing: true,
-        scrub: 1,
-        end: () => "+=" + (horizontalScrollContent.length * window.innerWidth),
-        invalidateOnRefresh: true,
+        gsap.to(horizontalScrollContent, {
+            xPercent: -100 * (horizontalScrollContent.length - 1),
+            scrollTrigger: {
+                trigger: ".projects-container",
+                pin: true,
+                pinSpacing: true,
+                scrub: 1,
+                end: () => "+=" + (horizontalScrollContent.length * window.innerWidth),
+                invalidateOnRefresh: true,
+            }
+        });
     }
-})
+});
 
 // gsap.utils.toArray(".project-content").forEach((el) => {
 //   gsap.from(el, {
@@ -96,5 +101,15 @@ const validate = (e) => {
 const emailIsValid = email => {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
+
+// Close mobile menu when a link is clicked
+const menuLinks = document.querySelectorAll('nav a');
+const menuToggle = document.getElementById('menu-toggle');
+
+menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        if (menuToggle) menuToggle.checked = false;
+    });
+});
 
 submitBtn.addEventListener('submit', validate);
